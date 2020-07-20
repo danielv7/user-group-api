@@ -58,7 +58,7 @@ app.post("/api/newuser", async (req, res) => {
     }
    
 });
-//Logging In, Assigned Token, and giving back userid.
+//Logging In and AssigningToken,.
 app.post("/api/login", async (req, res) => {
 
     //validate login information
