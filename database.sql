@@ -45,7 +45,6 @@ VALUES  (10, 'john@gmail.com');
 
 
 /*
-HERE IS A COMMENT
 
 psql -d postgres -U usergroupapi3
 \c userandgroupapi
