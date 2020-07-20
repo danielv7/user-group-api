@@ -1,7 +1,7 @@
 # Simple user-group-api project 
 
 
-## Documention of project
+## Documention of Project
 
 The project will have 5 API endpoints:
 
