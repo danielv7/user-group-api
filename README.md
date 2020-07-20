@@ -21,6 +21,9 @@ npm install
 npm start
 ```
 
+- Estimate time spent on project 7 hours
+
+
 ## Author
 
 - Daniel Vaughan
