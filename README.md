@@ -6,8 +6,10 @@
 The project will a 5 API endpoints 
 
 - Creating a User
-```Post: http://localhost:3000/api/newuser```
-```Post: http://localhost:3000/api/newuser```
+```
+Post: http://localhost:3000/api/newuser
+sdf```
+
 - login in
 - create groups
 - add members to a given group
