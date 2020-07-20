@@ -21,6 +21,21 @@ npm install
 npm start
 ```
 
+## postgres installation and set up.
+```
+brew install postgresql
+brew services start postgresql
+psql postgres
+postgres=# CREATE ROLE usergroupapi3 WITH LOGIN PASSWORD 'password3';
+postgres=# ALTER ROLE usergroupapi3 CREATEDB;
+postgres=# \q
+psql -d postgres -U usergroupapi3
+postgres=> CREATE DATABASE userandgroupapi;
+postgres=> \c userandgroupapi
+```
+
+
+
 - Estimate time spent on project 7 hours
 
 
