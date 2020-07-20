@@ -33,6 +33,7 @@ psql -d postgres -U usergroupapi3
 postgres=> CREATE DATABASE userandgroupapi;
 postgres=> \c userandgroupapi
 ```
+Next you can create your database table using or running the database.sql file.
 
 
 
