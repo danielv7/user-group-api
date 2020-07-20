@@ -24,7 +24,13 @@ Post: http://localhost:3000/api/login
 }
 ```
 
-- create groups
+- Creating Group
+```
+Post: http://localhost:3000/api/auth/newgroup
+{
+    "groupName" : "Home and Garden"
+}
+```
 - add members to a given group
 - Get groups created by user
 - Get members of given groups
