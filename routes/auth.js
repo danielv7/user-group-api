@@ -65,7 +65,6 @@ router.post("/newmember/:groupid", verify, async (req, res) => {
     );
     if (groupMemberCheck.rows[0]) return res.status(400).send('Email address already belongs to this group.')
 
-
     try {
         const {groupid} = req.params;
         const {email} = req.body;
@@ -77,7 +76,6 @@ router.post("/newmember/:groupid", verify, async (req, res) => {
         );
         res.json(newMember.rows[0]);
         //res.json({groupId: groupid, email: email});
-        
     } catch (err) {
         //console.error(err.message);
         res.status(400).send(err);
