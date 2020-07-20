@@ -83,9 +83,8 @@ router.post("/newmember/:groupid", verify, async (req, res) => {
    
 });
 
-//http://localhost:3000/api/auth/groupscreated
+//GET: http://localhost:3000/api/auth/groupscreated
 router.get("/groupscreated", verify, async (req, res) => {
-
 
     try {
         const userId = req.user.userid;
@@ -93,21 +92,18 @@ router.get("/groupscreated", verify, async (req, res) => {
         const createdGroups = await pool.query( 
             "SELECT groupName FROM createdGroups WHERE userID = $1", 
             [userId] 
-
         );
         res.json(createdGroups.rows);
         //res.json({groupId: groupid, email: email});
         
     } catch (err) {
-        //console.error(err.message);
         res.status(400).send(err);
     }
    
 });
 
-//http://localhost:3000/api/auth/groupmembers/:groupid
+//Get http://localhost:3000/api/auth/groupmembers/:groupid
 router.get("/groupmembers/:groupid", verify, async (req, res) => {
-
 
     try {
         const {groupid} = req.params;
