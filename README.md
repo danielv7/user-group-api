@@ -31,7 +31,13 @@ Post: http://localhost:3000/api/auth/newgroup
     "groupName" : "Home and Garden"
 }
 ```
-- add members to a given group
+- Adding a Member to a Given Group
+```
+Post: hhttp://localhost:3000/api/auth/newmember/:groupid
+{
+    "email" : "alyssa@gmail.com"
+}
+```
 - Get groups created by user
 - Get members of given groups
 
