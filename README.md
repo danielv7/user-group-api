@@ -35,9 +35,10 @@ postgres=> \c userandgroupapi
 ```
 Next you can create your database table using or running the database.sql file.
 
-
+## Notes
 
 - Estimate time spent on project 7 hours
+- I would add a .env file for protecting certain critical information such as passwords and hashing code.
 
 
 ## Author
