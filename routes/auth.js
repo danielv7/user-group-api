@@ -15,7 +15,7 @@ router.get('/', verify,(req, res) => {
 });
 
 
-//http://localhost:3000/api/auth/newgroup
+//POST: http://localhost:3000/api/auth/newgroup
 router.post("/newgroup", verify, async (req, res) => {
 
     //validate group information
@@ -34,24 +34,22 @@ router.post("/newgroup", verify, async (req, res) => {
     try {
         const userId = req.user.userid;
         const groupName = req.body.groupName;
-        //res.json({userId: userId, groupName: groupName});
+
         const newGroup = await pool.query( 
             "INSERT INTO createdGroups (userId, groupName) VALUES ($1, $2) RETURNING *", 
             [userId, groupName] 
         );
         res.json(newGroup.rows[0]);
         
-       
     } catch (err) {
-        //console.error(err.message);
         res.status(400).send(err);
     }
    
 });
 
 
-//http://localhost:3000/api/auth/newmember/:groupid
-router.get("/newmember/:groupid", verify, async (req, res) => {
+//POST http://localhost:3000/api/auth/newmember/:groupid
+router.post("/newmember/:groupid", verify, async (req, res) => {
 
     //validate new Member information
     const { error } = memberValidation(req.body);
