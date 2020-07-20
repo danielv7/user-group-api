@@ -5,7 +5,8 @@
 
 The project will a 5 API endpoints 
 
-- Creat a user
+- Creating a User
+--dsfsd
 - login in
 - create groups
 - add members to a given group
