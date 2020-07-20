@@ -4,7 +4,7 @@ const verify = require('./verifyToken');
 
 const { groupValidation, memberValidation } = require("../validation");
 
-//Token routes only accessible using key: auth-token, value: "userToken"
+//Auth token routes only accessible using key: auth-token, value: "userToken"
 
 
 router.get('/', verify,(req, res) => {
@@ -16,8 +16,7 @@ router.get('/', verify,(req, res) => {
 
 
 //http://localhost:3000/api/auth/newgroup
-//body groupName
-router.get("/newgroup", verify, async (req, res) => {
+router.post("/newgroup", verify, async (req, res) => {
 
     //validate group information
     const { error } = groupValidation(req.body);
@@ -30,7 +29,7 @@ router.get("/newgroup", verify, async (req, res) => {
         "SELECT groupName FROM createdGroups WHERE userId = $1 AND groupName =  $2", 
         [userId, groupName] 
     );
-    if (groupNameCheck.rows[0]) return res.status(400).send('Already created group with this name.')
+    if (groupNameCheck.rows[0]) return res.status(400).send('You already created group with this name.')
 
     try {
         const userId = req.user.userid;
