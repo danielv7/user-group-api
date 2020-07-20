@@ -44,6 +44,8 @@ VALUES  (10, 'john@gmail.com');
 
 
 
+/*
+HERE IS A COMMENT
 
 psql -d postgres -U usergroupapi3
 \c userandgroupapi
@@ -53,6 +55,8 @@ psql -d postgres -U usergroupapi3
 \dt | List all tables
 \du | List all roles
 \list | List databases
+
+*/
 
 {
     "userEmail": "dan@gmail.com",

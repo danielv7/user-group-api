@@ -3,16 +3,14 @@ const app =  express();
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const pool = require("./dbconfig")
 
 const {registerValidation, loginValidation} = require("./validation");
 
-const pool = require("./dbconfig")
 
 //middleware
 app.use(cors());
 app.use(express.json()); //req.body
-
-
 
 // /api/auth/
 const authRoute = require('./routes/auth');
@@ -20,8 +18,8 @@ const authRoute = require('./routes/auth');
 app.use('/api/auth', authRoute);
 
 
+//Main Routes
 
-// main routes
 //creating a new user
 app.post("/api/newuser", async (req, res) => {
 
@@ -37,10 +35,9 @@ app.post("/api/newuser", async (req, res) => {
     if (checkEmail.rows[0]) return res.status(400).send('Email already exsits')
 
 
-    //hash password code for production environment
+    //hash password code for production environment.
 
     try { 
-         //creating new user
         const { userEmail } = req.body; 
         const { name } = req.body; 
         const {password } = req.body; 
@@ -49,10 +46,9 @@ app.post("/api/newuser", async (req, res) => {
             "INSERT INTO users (userEmail, name, password) VALUES ($1, $2, $3) RETURNING *", 
             [userEmail, name, password] 
         );
-        
         //res.json(newUser.rows[0]);
-        //returning only userid
-        res.json({userid: newUser.rows[0].userid});
+        //returning only userid and name
+        res.json({userid: newUser.rows[0].userid, name: newUser.rows[0].name});
 
     } catch (err) { 
         //res.status(400).send();
@@ -60,10 +56,9 @@ app.post("/api/newuser", async (req, res) => {
         res.status(400).send(err);
         
     }
-  
    
 });
-//Logging in assigned token and gives back userid
+//Logging In, Assigned Token, and giving back userid.
 app.post("/api/login", async (req, res) => {
 
     //validate login information
@@ -81,17 +76,14 @@ app.post("/api/login", async (req, res) => {
         const validPassword = await (user.rows[0].password) == req.body.password;
         if(!validPassword) return res.status(400).send('Password is incorrect');
 
-        //create and assign a token: "j234l2j34gnewlert4" should be a hidden ENV variable for production
+        //Createing and assigning a token: "j234l2j34gnewlert4" should be a hidden ENV variable for production
         const token = jwt.sign({userid: user.rows[0].userid}, "j234l2j34gnewlert4");
         res.header('auth-token', token).send(token);
-
        
         //res.send("Loged In");
 
    
 });
-
-
 
 
 
