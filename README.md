@@ -3,7 +3,7 @@
 
 ## Documention of Project
 
-The project will have 5 API endpoints:
+The project has 5 API endpoints:
 
 - Creating a User
 ```
