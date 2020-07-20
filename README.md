@@ -43,7 +43,10 @@ Post: hhttp://localhost:3000/api/auth/newmember/:groupid
 Get: http://localhost:3000/api/auth/groupscreated
 
 ```
-- Get members of given groups
+- Getting Members of Given Group
+```
+Get:http://localhost:3000/api/auth/groupmembers/:groupid
+```
 
 ## Installation
 
