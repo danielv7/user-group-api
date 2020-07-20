@@ -15,7 +15,15 @@ Post: http://localhost:3000/api/newuser
 }
 ```
 
-- login in
+- Logging In
+```
+Post: http://localhost:3000/api/login
+{
+    "userEmail" : "dvaughan99@gmail.com",
+    "password" : "password1234"
+}
+```
+
 - create groups
 - add members to a given group
 - Get groups created by user
