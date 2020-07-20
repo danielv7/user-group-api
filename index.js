@@ -93,48 +93,6 @@ app.post("/api/login", async (req, res) => {
 
 
 
-///Extra API Points
-//get all users
-app.get("/api/user", async (req, res) => {
-    try {
-        const allUsers = await pool.query("SELECT * FROM users");
-        res.json(allUsers.rows);
-    } catch (err) {
-        console.error(err.message);
-    }
-   
-});
-
-//get user
-app.get("/api/user/:userid", async (req, res) => {
-    try {
-        const {userid} = req.params;
-        const user = await pool.query("SELECT * FROM users WHERE userId = $1", [userid])
-        
-        res.json(user.rows[0]);
-    } catch (err) {
-        console.error(err.message);
-    }
-   
-});
-
-//update user name
-app.put("/api/user/:userid", async (req, res) => {
-    try {
-        const {userid} = req.params;
-        const {name} = req.body;
-        const updateUserName = await pool.query("UPDATE users set name = $1 WHERE userId = $2", 
-        [name, userid]
-        );
-        
-        res.json("User name was updated");
-
-    } catch (err) {
-        console.error(err.message);
-    }
-   
-});
-
 
 
 //Start listeing
