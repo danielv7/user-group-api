@@ -32,17 +32,6 @@ CREATE TABLE groupMembers(
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO usergroupapi3;
 
 
-INSERT INTO users (userEmail, name, password)
-VALUES  ('dvaughan92@gmail.com', 'Daniel Vaughan', 'password123');
-
-INSERT INTO createdGroups (userId, groupName)
-VALUES  (1, 'Tech Group');
-
-
-INSERT INTO groupMembers (groupId, email)
-VALUES  (10, 'john@gmail.com');
-
-
 
 /*
 
@@ -56,19 +45,3 @@ psql -d postgres -U usergroupapi3
 \list | List databases
 
 */
-
-{
-    "userEmail": "dan@gmail.com",
-    "name": "Dan Von",
-    "password": "password123"
-}
-{
-    "groupid": 13,
-    "userid": 91,
-    "groupname": "Api Group"
-}
-{
-    "groupid": 14,
-    "userid": 91,
-    "groupname": "Art Group"
-}

@@ -3,6 +3,7 @@ const pool = require("../dbconfig")
 const verify = require('./verifyToken');
 
 const { groupValidation, memberValidation } = require("../validation");
+const { json } = require('express');
 
 //Auth token routes only accessible using key: auth-token, value: "userToken"
 
