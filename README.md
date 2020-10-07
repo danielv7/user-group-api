@@ -16,6 +16,7 @@ Post: http://localhost:3000/api/newuser
 ```
 
 - Logging In
+- Returns Token
 ```
 Post: http://localhost:3000/api/login
 {
@@ -25,6 +26,7 @@ Post: http://localhost:3000/api/login
 ```
 
 - Creating Group
+- Token Required
 ```
 Post: http://localhost:3000/api/auth/newgroup
 {
@@ -32,6 +34,7 @@ Post: http://localhost:3000/api/auth/newgroup
 }
 ```
 - Adding Member to Given Group
+- Token Required
 ```
 Post: hhttp://localhost:3000/api/auth/newmember/:groupid
 {
@@ -39,11 +42,13 @@ Post: hhttp://localhost:3000/api/auth/newmember/:groupid
 }
 ```
 - Getting Groups Created by User
+- Token Required
 ```
 Get: http://localhost:3000/api/auth/groupscreated
 
 ```
 - Getting Members of Given Group
+- Token Required
 ```
 Get:http://localhost:3000/api/auth/groupmembers/:groupid
 ```
